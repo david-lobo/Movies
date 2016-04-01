@@ -16,6 +16,7 @@
 		F0FF43C11CAEA3E5000D8A9C /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FF43C01CAEA3E5000D8A9C /* Movie.m */; };
 		F0FF43C71CAEA71A000D8A9C /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FF43C61CAEA71A000D8A9C /* MovieCell.m */; };
 		F0FF43C91CAEA88A000D8A9C /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FF43C81CAEA88A000D8A9C /* MovieCell.xib */; };
+		F0FF43CB1CAEAEC8000D8A9C /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FF43CA1CAEAEC8000D8A9C /* LoadingCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F0FF43C51CAEA71A000D8A9C /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		F0FF43C61CAEA71A000D8A9C /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		F0FF43C81CAEA88A000D8A9C /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		F0FF43CA1CAEAEC8000D8A9C /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				F0FF43C61CAEA71A000D8A9C /* MovieCell.m */,
 				F0FF43BC1CAEA38F000D8A9C /* MovieTableViewController.h */,
 				F0FF43BD1CAEA38F000D8A9C /* MovieTableViewController.m */,
+				F0FF43CA1CAEAEC8000D8A9C /* LoadingCell.xib */,
 				F0FF43C81CAEA88A000D8A9C /* MovieCell.xib */,
 				F0FF43BF1CAEA3E5000D8A9C /* Movie.h */,
 				F0FF43C01CAEA3E5000D8A9C /* Movie.m */,
@@ -152,6 +155,7 @@
 				F0FF43B31CAEA212000D8A9C /* LaunchScreen.storyboard in Resources */,
 				F0FF43B01CAEA212000D8A9C /* Assets.xcassets in Resources */,
 				F0FF43C91CAEA88A000D8A9C /* MovieCell.xib in Resources */,
+				F0FF43CB1CAEAEC8000D8A9C /* LoadingCell.xib in Resources */,
 				F0FF43AE1CAEA212000D8A9C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

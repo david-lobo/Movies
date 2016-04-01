@@ -18,12 +18,16 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
 
 @interface MovieTableViewController ()
 @property NSMutableArray *movieResults;
+@property BOOL isLoading;
 @end
 
 @implementation MovieTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.rowHeight = 80;
+    self.isLoading = YES;
     
     [self registerNibs];
     
@@ -55,16 +59,32 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier: MovieTableCellIdentifier forIndexPath: indexPath];
+    if (self.isLoading) {
+        
+        UITableViewCell *loadingCell = [self.tableView dequeueReusableCellWithIdentifier: LoadingTableCellIdentifier forIndexPath:indexPath];
+        
+        UIActivityIndicatorView *spinner = (UIActivityIndicatorView *)[loadingCell viewWithTag: 100];
+        [spinner startAnimating];
+        
+        return loadingCell;
+        
+    } else {
     
-    Movie *movieData = (Movie *)self.movieResults[indexPath.row];
-    
-    [cell configureCellForMovie:movieData];
-    
-    return cell;
+        MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier: MovieTableCellIdentifier forIndexPath: indexPath];
+        
+        Movie *movieData = (Movie *)self.movieResults[indexPath.row];
+        
+        [cell configureCellForMovie:movieData];
+        
+        return cell;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if (self.isLoading) {
+        return 1;
+    }
     
     return [self.movieResults count];
 }
@@ -74,6 +94,9 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
 - (void)registerNibs {
     UINib *cellNib = [UINib nibWithNibName: MovieTableCellNib bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier: MovieTableCellIdentifier];
+    
+    UINib *loadingCellNib = [UINib nibWithNibName: LoadingTableCellNib bundle:nil];
+    [self.tableView registerNib:loadingCellNib forCellReuseIdentifier: LoadingTableCellIdentifier];
 }
 
 @end

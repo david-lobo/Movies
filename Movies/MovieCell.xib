@@ -32,10 +32,8 @@
                     <constraint firstItem="R9k-RY-upI" firstAttribute="leading" secondItem="BRA-mV-rY8" secondAttribute="trailing" constant="15" id="2ms-FZ-UnS"/>
                     <constraint firstAttribute="trailing" secondItem="R9k-RY-upI" secondAttribute="trailing" constant="15" id="aN5-KP-AIb"/>
                     <constraint firstItem="R9k-RY-upI" firstAttribute="centerY" secondItem="5fk-L2-PyH" secondAttribute="centerY" id="ac3-yM-Kgn"/>
-                    <constraint firstAttribute="bottom" secondItem="BRA-mV-rY8" secondAttribute="bottom" constant="15" id="nhC-5c-4uE"/>
                     <constraint firstItem="BRA-mV-rY8" firstAttribute="centerY" secondItem="5fk-L2-PyH" secondAttribute="centerY" id="noc-i3-sLj"/>
                     <constraint firstItem="BRA-mV-rY8" firstAttribute="leading" secondItem="5fk-L2-PyH" secondAttribute="leading" constant="15" id="wyV-vz-5D4"/>
-                    <constraint firstItem="BRA-mV-rY8" firstAttribute="top" secondItem="5fk-L2-PyH" secondAttribute="top" constant="15" id="zAY-13-fUi"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -17,6 +17,7 @@
 - (void)configureCellForMovie:(Movie *)movie {
     
     self.titleLabel.text = movie.title;
+    [self.posterImageView setImage:[UIImage imageNamed:@"art_50"]];
 }
 
 @end
