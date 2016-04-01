@@ -14,6 +14,13 @@
 
 @implementation AppDelegate
 
+// TODO: Sort list by Rotten Tomatoes scores
+// I would achieve this by:
+// - using the api as a GET param, and then requesting the data with NSURLSession.
+// - Parse the json response using NSJSONSerialization.JSONObjectWithData and then extracting the required data
+// - I would probably cache this data after it is parsed, to eliminate multiple API requests.
+//   The default cache in NSURLSession could be sufficient for this, or possible using NSCache.
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
