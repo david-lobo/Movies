@@ -29,7 +29,7 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
     [super viewDidLoad];
     
     self.tableView.rowHeight = 80;
-    //self.isLoading = YES;
+    self.isLoading = YES;
     
     // Register custom UITableViewCells
     [self registerNibs];
@@ -38,6 +38,9 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
     
     // Perform remote API data request
     [self refreshData];
+    
+    // Handle pull to refresh
+    [self.refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
     
     /*  
      

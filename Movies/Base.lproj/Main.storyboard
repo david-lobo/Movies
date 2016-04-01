@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Movie Table View Controller-->
+        <!--New Movies on Fandango-->
         <scene sceneID="IWB-Br-47a">
             <objects>
                 <tableViewController id="2UQ-7y-9mw" customClass="MovieTableViewController" sceneMemberID="viewController">
@@ -13,22 +13,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" id="ZfO-dD-RQl">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZfO-dD-RQl" id="Mss-gB-GVc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="2UQ-7y-9mw" id="SfQ-0X-ZRv"/>
                             <outlet property="delegate" destination="2UQ-7y-9mw" id="VlO-0e-XmE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xND-7G-4fF"/>
+                    <navigationItem key="navigationItem" title="New Movies on Fandango" id="xND-7G-4fF"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="qqQ-gX-H8m">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4qR-2C-H1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

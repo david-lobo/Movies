@@ -10,17 +10,9 @@
 #import "Movie.h"
 #import "MovieXMLParser.h"
 
-static NSString *const MovieAPIRemoteURL = @"http://topstuffreview.com/webservice/test/newmovies.rss";
+static NSString *const MovieAPIRemoteURL = @"http://topstuffreview.com/webservice/test/newmovies.rss?x=1";
 
 @interface MovieAPI () {
-    
-    /*NSXMLParser *parser;
-     NSMutableDictionary *item;
-     NSMutableString *title;
-     NSMutableString *image;
-     NSString *element;*/
-    
-    
 }
 
 @property (nonatomic, copy) MovieAPIRemoteRequestCompleted finished;
