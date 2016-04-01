@@ -20,6 +20,7 @@
 		F0FF43CB1CAEAEC8000D8A9C /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FF43CA1CAEAEC8000D8A9C /* LoadingCell.xib */; };
 		F0FF43CE1CAEB94B000D8A9C /* MovieAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FF43CD1CAEB94B000D8A9C /* MovieAPI.m */; };
 		F0FF43D11CAEB968000D8A9C /* MovieXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FF43D01CAEB968000D8A9C /* MovieXMLParser.m */; };
+		F0FF43D61CAEC194000D8A9C /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FF43D51CAEC194000D8A9C /* EmptyCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F0FF43CD1CAEB94B000D8A9C /* MovieAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieAPI.m; sourceTree = "<group>"; };
 		F0FF43CF1CAEB968000D8A9C /* MovieXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieXMLParser.h; sourceTree = "<group>"; };
 		F0FF43D01CAEB968000D8A9C /* MovieXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieXMLParser.m; sourceTree = "<group>"; };
+		F0FF43D51CAEC194000D8A9C /* EmptyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				F0FF43A61CAEA212000D8A9C /* AppDelegate.h */,
 				F0FF43A71CAEA212000D8A9C /* AppDelegate.m */,
 				F0FF43AC1CAEA212000D8A9C /* Main.storyboard */,
+				F0FF43D51CAEC194000D8A9C /* EmptyCell.xib */,
 				F0FF43C51CAEA71A000D8A9C /* MovieCell.h */,
 				F0FF43C61CAEA71A000D8A9C /* MovieCell.m */,
 				F0FF43BC1CAEA38F000D8A9C /* MovieTableViewController.h */,
@@ -194,6 +197,7 @@
 				F0FF43C91CAEA88A000D8A9C /* MovieCell.xib in Resources */,
 				F0FF43CB1CAEAEC8000D8A9C /* LoadingCell.xib in Resources */,
 				F0FF43AE1CAEA212000D8A9C /* Main.storyboard in Resources */,
+				F0FF43D61CAEC194000D8A9C /* EmptyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

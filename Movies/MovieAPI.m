@@ -10,7 +10,7 @@
 #import "Movie.h"
 #import "MovieXMLParser.h"
 
-static NSString *const MovieAPIRemoteURL = @"http://topstuffreview.com/webservice/test/newmovies.rss?x=1";
+static NSString *const MovieAPIRemoteURL = @"http://topstuffreview.com/webservice/test/newmovies.rss?x=2";
 
 @interface MovieAPI () {
 }

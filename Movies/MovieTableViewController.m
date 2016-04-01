@@ -17,6 +17,9 @@ static NSString *const MovieTableCellNib = @"MovieCell";
 static NSString *const LoadingTableCellIdentifier = @"LoadingCell";
 static NSString *const LoadingTableCellNib = @"LoadingCell";
 
+static NSString *const EmptyTableCellIdentifier = @"EmptyCell";
+static NSString *const EmptyTableCellNib = @"EmptyCell";
+
 @interface MovieTableViewController ()
 @property NSMutableArray *movieResults;
 @property BOOL isLoading;
@@ -87,6 +90,11 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
         return loadingCell;
         
     } else {
+        if ([self.movieResults count] == 0) {
+            UITableViewCell *emptyCell = [self.tableView dequeueReusableCellWithIdentifier: EmptyTableCellIdentifier forIndexPath:indexPath];
+            
+            return emptyCell;
+        }
     
         MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier: MovieTableCellIdentifier forIndexPath: indexPath];
         
@@ -104,6 +112,10 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
         return 1;
     }
     
+    if (!self.movieResults || [self.movieResults count] == 0) {
+        return 1;
+    }
+    
     return [self.movieResults count];
 }
 
@@ -111,10 +123,13 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
 
 - (void)registerNibs {
     UINib *cellNib = [UINib nibWithNibName: MovieTableCellNib bundle:nil];
-    [self.tableView registerNib:cellNib forCellReuseIdentifier: MovieTableCellIdentifier];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:MovieTableCellIdentifier];
     
     UINib *loadingCellNib = [UINib nibWithNibName: LoadingTableCellNib bundle:nil];
     [self.tableView registerNib:loadingCellNib forCellReuseIdentifier: LoadingTableCellIdentifier];
+    
+    UINib *emptyCellNib = [UINib nibWithNibName:EmptyTableCellNib bundle:nil];
+    [self.tableView registerNib:emptyCellNib forCellReuseIdentifier: EmptyTableCellIdentifier];
 }
 
 #pragma mark - Loading data
