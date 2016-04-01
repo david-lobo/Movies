@@ -8,6 +8,7 @@
 
 #import "MovieTableViewController.h"
 #import "Movie.h"
+#import "MovieCell.h"
 
 static NSString *const MovieTableCellIdentifier = @"MovieCell";
 static NSString *const MovieTableCellNib = @"MovieCell";
@@ -24,12 +25,7 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    [self registerNibs];
     
     //  Some Test code
     self.movieResults = [[NSMutableArray alloc] init];
@@ -59,13 +55,11 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: MovieTableCellIdentifier forIndexPath: indexPath];
+    MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier: MovieTableCellIdentifier forIndexPath: indexPath];
     
-    //NSDictionary *filmData = self.filmResults[indexPath.row];
     Movie *movieData = (Movie *)self.movieResults[indexPath.row];
     
-    cell.textLabel.text = movieData.title;
+    [cell configureCellForMovie:movieData];
     
     return cell;
 }
@@ -75,59 +69,11 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
     return [self.movieResults count];
 }
 
+#pragma mark - Setup helpers
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+- (void)registerNibs {
+    UINib *cellNib = [UINib nibWithNibName: MovieTableCellNib bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier: MovieTableCellIdentifier];
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
