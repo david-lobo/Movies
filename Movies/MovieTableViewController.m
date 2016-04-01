@@ -123,7 +123,19 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
     
     MovieAPIRemoteRequestCompleted completion = ^(BOOL success, NSMutableArray *results, NSError *error) {
         
-        self.movieResults = results;
+        // Sort the results by title - using descriptor
+        /*NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending: YES];
+        NSMutableArray *sortedResults = (NSMutableArray *)[results sortedArrayUsingDescriptors:@[sortDescriptor]];*/
+
+        // Sort the results by title ignoring certain words
+        NSArray *sortedResults = [results sortedArrayUsingComparator:^NSComparisonResult(Movie *movie1, Movie *movie2) {
+        NSString *title1 = [self removePrefix:movie1.title];
+        NSString *title2 = [self removePrefix:movie2.title];
+
+        return [title1 compare:title2];
+        }];
+        
+        self.movieResults = [sortedResults mutableCopy];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -172,6 +184,25 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
                              [self dismissViewControllerAnimated:YES completion:nil];
                          }];
     [alert addAction:ok];
+}
+
+- (NSString*)removePrefix:(NSString *)fromString
+{
+    fromString = [fromString lowercaseString];
+    NSRange range = NSMakeRange(NSNotFound, 0);
+    if ([fromString hasPrefix:@"the "]) {
+        range = [fromString rangeOfString:@"the "];
+    } else if ([fromString hasPrefix:@"a "]) {
+        range = [fromString rangeOfString:@"a "];
+    } else if ([fromString hasPrefix:@"of "]) {
+        range = [fromString rangeOfString:@"of "];
+    }
+    
+    if (range.location != NSNotFound) {
+        return [fromString substringFromIndex:range.length];
+    } else {
+        return fromString;
+    }
 }
 
 @end
