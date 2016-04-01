@@ -27,27 +27,29 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
     [super viewDidLoad];
     
     self.tableView.rowHeight = 80;
-    self.isLoading = YES;
+    //self.isLoading = YES;
     
     [self registerNibs];
     
     //  Some Test code
     self.movieResults = [[NSMutableArray alloc] init];
-    Movie *Movie1 = [[Movie alloc] init];
-    Movie1.title = @"Of mice and men";
-    [self.movieResults insertObject:Movie1 atIndex:0];
+    Movie *movie1 = [[Movie alloc] init];
+    movie1.title = @"Of mice and men";
+    movie1.imageURL = @"http://images.fandango.com/r100.0/ImageRenderer/111/168/images/no_image_111x168.jpg/188727/images/masterrepository/fandango/188727/godsnotdeadtwo.jpg";
     
-    Movie *Movie2 = [[Movie alloc] init];
-    Movie2.title = @"And then there were none";
-    [self.movieResults insertObject:Movie2 atIndex:1];
+    [self.movieResults insertObject:movie1 atIndex:0];
     
-    Movie *Movie3 = [[Movie alloc] init];
-    Movie3.title = @"The A Team";
-    [self.movieResults insertObject:Movie3 atIndex:2];
+    Movie *movie2 = [[Movie alloc] init];
+    movie2.title = @"And then there were none";
+    [self.movieResults insertObject:movie2 atIndex:1];
     
-    Movie *Movie4 = [[Movie alloc] init];
-    Movie4.title = @"Over the rainbow";
-    [self.movieResults insertObject:Movie4 atIndex:3];
+    Movie *movie3 = [[Movie alloc] init];
+    movie3.title = @"The A Team";
+    [self.movieResults insertObject:movie3 atIndex:2];
+    
+    Movie *movie4 = [[Movie alloc] init];
+    movie4.title = @"Over the rainbow";
+    [self.movieResults insertObject:movie4 atIndex:3];
 }
 
 - (void)didReceiveMemoryWarning {
