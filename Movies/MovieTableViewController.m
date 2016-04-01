@@ -9,6 +9,7 @@
 #import "MovieTableViewController.h"
 #import "Movie.h"
 #import "MovieCell.h"
+#import "MovieAPI.h"
 
 static NSString *const MovieTableCellIdentifier = @"MovieCell";
 static NSString *const MovieTableCellNib = @"MovieCell";
@@ -19,6 +20,7 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
 @interface MovieTableViewController ()
 @property NSMutableArray *movieResults;
 @property BOOL isLoading;
+@property MovieAPI *movieAPI;
 @end
 
 @implementation MovieTableViewController
@@ -29,9 +31,18 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
     self.tableView.rowHeight = 80;
     //self.isLoading = YES;
     
+    // Register custom UITableViewCells
     [self registerNibs];
     
-    //  Some Test code
+    self.movieResults = [[NSMutableArray alloc] init];
+    
+    // Perform remote API data request
+    [self refreshData];
+    
+    /*  
+     
+    Some Test data - can be used to test sorting
+     
     self.movieResults = [[NSMutableArray alloc] init];
     Movie *movie1 = [[Movie alloc] init];
     movie1.title = @"Of mice and men";
@@ -50,6 +61,8 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
     Movie *movie4 = [[Movie alloc] init];
     movie4.title = @"Over the rainbow";
     [self.movieResults insertObject:movie4 atIndex:3];
+     
+     */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,6 +112,63 @@ static NSString *const LoadingTableCellNib = @"LoadingCell";
     
     UINib *loadingCellNib = [UINib nibWithNibName: LoadingTableCellNib bundle:nil];
     [self.tableView registerNib:loadingCellNib forCellReuseIdentifier: LoadingTableCellIdentifier];
+}
+
+#pragma mark - Loading data
+
+- (void)refreshData {
+    
+    MovieAPIRemoteRequestCompleted completion = ^(BOOL success, NSMutableArray *results, NSError *error) {
+        
+        self.movieResults = results;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if(self.refreshControl.refreshing) {
+                [self.refreshControl endRefreshing];
+            }
+            if (!success) {
+                if (error) {
+                    [self showError:@"Error connectiing" withMessage:[error localizedDescription]];
+                } else {
+                    [self showError:@"Error connectiing" withMessage:@"Unknown problem"];
+                }
+            }
+            
+            self.isLoading = NO;
+            [self.tableView reloadData];
+        });
+    };
+    
+    // Init the results array
+    self.movieResults = [[NSArray alloc] init];
+    
+    // Init the api class
+    self.movieAPI = [[MovieAPI alloc] init];
+    
+    // Perform the remote request to populate results
+    [self.movieAPI performRemoteRequest: completion];
+}
+
+#pragma mark - Display helpers
+
+- (void)showError:(NSString *)title withMessage:(NSString *)message {
+    
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:title
+                                  message:message
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [self dismissViewControllerAnimated:YES completion:nil];
+                         }];
+    [alert addAction:ok];
 }
 
 @end

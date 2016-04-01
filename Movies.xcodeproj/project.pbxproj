@@ -18,6 +18,8 @@
 		F0FF43C71CAEA71A000D8A9C /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FF43C61CAEA71A000D8A9C /* MovieCell.m */; };
 		F0FF43C91CAEA88A000D8A9C /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FF43C81CAEA88A000D8A9C /* MovieCell.xib */; };
 		F0FF43CB1CAEAEC8000D8A9C /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FF43CA1CAEAEC8000D8A9C /* LoadingCell.xib */; };
+		F0FF43CE1CAEB94B000D8A9C /* MovieAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FF43CD1CAEB94B000D8A9C /* MovieAPI.m */; };
+		F0FF43D11CAEB968000D8A9C /* MovieXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FF43D01CAEB968000D8A9C /* MovieXMLParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,10 @@
 		F0FF43C61CAEA71A000D8A9C /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		F0FF43C81CAEA88A000D8A9C /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		F0FF43CA1CAEAEC8000D8A9C /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		F0FF43CC1CAEB94B000D8A9C /* MovieAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieAPI.h; sourceTree = "<group>"; };
+		F0FF43CD1CAEB94B000D8A9C /* MovieAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieAPI.m; sourceTree = "<group>"; };
+		F0FF43CF1CAEB968000D8A9C /* MovieXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieXMLParser.h; sourceTree = "<group>"; };
+		F0FF43D01CAEB968000D8A9C /* MovieXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieXMLParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,10 @@
 				F0FF43C61CAEA71A000D8A9C /* MovieCell.m */,
 				F0FF43BC1CAEA38F000D8A9C /* MovieTableViewController.h */,
 				F0FF43BD1CAEA38F000D8A9C /* MovieTableViewController.m */,
+				F0FF43CC1CAEB94B000D8A9C /* MovieAPI.h */,
+				F0FF43CD1CAEB94B000D8A9C /* MovieAPI.m */,
+				F0FF43CF1CAEB968000D8A9C /* MovieXMLParser.h */,
+				F0FF43D01CAEB968000D8A9C /* MovieXMLParser.m */,
 				F0FF43CA1CAEAEC8000D8A9C /* LoadingCell.xib */,
 				F0FF43C81CAEA88A000D8A9C /* MovieCell.xib */,
 				F0FF43BF1CAEA3E5000D8A9C /* Movie.h */,
@@ -242,11 +252,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0FF43D11CAEB968000D8A9C /* MovieXMLParser.m in Sources */,
 				F0FF43BE1CAEA38F000D8A9C /* MovieTableViewController.m in Sources */,
 				F0FF43C71CAEA71A000D8A9C /* MovieCell.m in Sources */,
 				F0FF43C11CAEA3E5000D8A9C /* Movie.m in Sources */,
 				F0FF43A81CAEA212000D8A9C /* AppDelegate.m in Sources */,
 				F0FF43A51CAEA212000D8A9C /* main.m in Sources */,
+				F0FF43CE1CAEB94B000D8A9C /* MovieAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
