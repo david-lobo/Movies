@@ -79,6 +79,66 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F006FF231CAEEFA00014284B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F0FF43A71CAEA212000D8A9C /* AppDelegate.m */,
+				F0FF43A61CAEA212000D8A9C /* AppDelegate.h */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		F006FF241CAEEFAA0014284B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F0FF43BC1CAEA38F000D8A9C /* MovieTableViewController.h */,
+				F0FF43BD1CAEA38F000D8A9C /* MovieTableViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F006FF251CAEEFB20014284B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F006FF281CAEF05E0014284B /* Nib */,
+				F0FF43C51CAEA71A000D8A9C /* MovieCell.h */,
+				F0FF43C61CAEA71A000D8A9C /* MovieCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F006FF261CAEEFB90014284B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0FF43BF1CAEA3E5000D8A9C /* Movie.h */,
+				F0FF43C01CAEA3E5000D8A9C /* Movie.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F006FF271CAEEFC20014284B /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F0FF43CC1CAEB94B000D8A9C /* MovieAPI.h */,
+				F0FF43CD1CAEB94B000D8A9C /* MovieAPI.m */,
+				F0FF43CF1CAEB968000D8A9C /* MovieXMLParser.h */,
+				F0FF43D01CAEB968000D8A9C /* MovieXMLParser.m */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		F006FF281CAEF05E0014284B /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				F0FF43AC1CAEA212000D8A9C /* Main.storyboard */,
+				F0FF43B11CAEA212000D8A9C /* LaunchScreen.storyboard */,
+				F0FF43D51CAEC194000D8A9C /* EmptyCell.xib */,
+				F0FF43CA1CAEAEC8000D8A9C /* LoadingCell.xib */,
+				F0FF43C81CAEA88A000D8A9C /* MovieCell.xib */,
+			);
+			name = Nib;
+			sourceTree = "<group>";
+		};
 		F0FF43971CAEA212000D8A9C = {
 			isa = PBXGroup;
 			children = (
@@ -100,24 +160,12 @@
 		F0FF43A21CAEA212000D8A9C /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				F0FF43A61CAEA212000D8A9C /* AppDelegate.h */,
-				F0FF43A71CAEA212000D8A9C /* AppDelegate.m */,
-				F0FF43AC1CAEA212000D8A9C /* Main.storyboard */,
-				F0FF43D51CAEC194000D8A9C /* EmptyCell.xib */,
-				F0FF43C51CAEA71A000D8A9C /* MovieCell.h */,
-				F0FF43C61CAEA71A000D8A9C /* MovieCell.m */,
-				F0FF43BC1CAEA38F000D8A9C /* MovieTableViewController.h */,
-				F0FF43BD1CAEA38F000D8A9C /* MovieTableViewController.m */,
-				F0FF43CC1CAEB94B000D8A9C /* MovieAPI.h */,
-				F0FF43CD1CAEB94B000D8A9C /* MovieAPI.m */,
-				F0FF43CF1CAEB968000D8A9C /* MovieXMLParser.h */,
-				F0FF43D01CAEB968000D8A9C /* MovieXMLParser.m */,
-				F0FF43CA1CAEAEC8000D8A9C /* LoadingCell.xib */,
-				F0FF43C81CAEA88A000D8A9C /* MovieCell.xib */,
-				F0FF43BF1CAEA3E5000D8A9C /* Movie.h */,
-				F0FF43C01CAEA3E5000D8A9C /* Movie.m */,
+				F006FF231CAEEFA00014284B /* Application */,
+				F006FF271CAEEFC20014284B /* Library */,
+				F006FF251CAEEFB20014284B /* View */,
+				F006FF241CAEEFAA0014284B /* Controller */,
+				F006FF261CAEEFB90014284B /* Model */,
 				F0FF43AF1CAEA212000D8A9C /* Assets.xcassets */,
-				F0FF43B11CAEA212000D8A9C /* LaunchScreen.storyboard */,
 				F0FF43B41CAEA212000D8A9C /* Info.plist */,
 				F0FF43A31CAEA212000D8A9C /* Supporting Files */,
 			);
