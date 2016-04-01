@@ -11,17 +11,20 @@
 #import "MovieCell.h"
 #import "MovieAPI.h"
 
+// Custom cell for movie data
 static NSString *const MovieTableCellIdentifier = @"MovieCell";
 static NSString *const MovieTableCellNib = @"MovieCell";
 
+// Custom cell for loading message
 static NSString *const LoadingTableCellIdentifier = @"LoadingCell";
 static NSString *const LoadingTableCellNib = @"LoadingCell";
 
+// Custom cell for no results message
 static NSString *const EmptyTableCellIdentifier = @"EmptyCell";
 static NSString *const EmptyTableCellNib = @"EmptyCell";
 
 @interface MovieTableViewController ()
-@property NSMutableArray *movieResults;
+@property NSArray *movieResults;
 @property BOOL isLoading;
 @property MovieAPI *movieAPI;
 @end
@@ -44,31 +47,6 @@ static NSString *const EmptyTableCellNib = @"EmptyCell";
     
     // Handle pull to refresh
     [self.refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
-    
-    /*  
-     
-    Some Test data - can be used to test sorting
-     
-    self.movieResults = [[NSMutableArray alloc] init];
-    Movie *movie1 = [[Movie alloc] init];
-    movie1.title = @"Of mice and men";
-    movie1.imageURL = @"http://images.fandango.com/r100.0/ImageRenderer/111/168/images/no_image_111x168.jpg/188727/images/masterrepository/fandango/188727/godsnotdeadtwo.jpg";
-    
-    [self.movieResults insertObject:movie1 atIndex:0];
-    
-    Movie *movie2 = [[Movie alloc] init];
-    movie2.title = @"And then there were none";
-    [self.movieResults insertObject:movie2 atIndex:1];
-    
-    Movie *movie3 = [[Movie alloc] init];
-    movie3.title = @"The A Team";
-    [self.movieResults insertObject:movie3 atIndex:2];
-    
-    Movie *movie4 = [[Movie alloc] init];
-    movie4.title = @"Over the rainbow";
-    [self.movieResults insertObject:movie4 atIndex:3];
-     
-     */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,10 +115,6 @@ static NSString *const EmptyTableCellNib = @"EmptyCell";
 - (void)refreshData {
     
     MovieAPIRemoteRequestCompleted completion = ^(BOOL success, NSMutableArray *results, NSError *error) {
-        
-        // Sort the results by title - using descriptor
-        /*NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending: YES];
-        NSMutableArray *sortedResults = (NSMutableArray *)[results sortedArrayUsingDescriptors:@[sortDescriptor]];*/
 
         // Sort the results by title ignoring certain words
         NSArray *sortedResults = [results sortedArrayUsingComparator:^NSComparisonResult(Movie *movie1, Movie *movie2) {

@@ -38,7 +38,6 @@ static NSString *const MovieAPIRemoteURL = @"http://topstuffreview.com/webservic
                                   ^(NSData *data, NSURLResponse *response, NSError *error) {
                                       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible: NO];
                                       if (!error) {
-                                          NSLog(@"Success");
                                           
                                           self.parser = [[MovieXMLParser alloc] initWithData:data];
                                           [self.parser parse];
@@ -50,7 +49,6 @@ static NSString *const MovieAPIRemoteURL = @"http://topstuffreview.com/webservic
                                           self.finished(false, nil, error);
                                       }
                                   }];
-    
     [task resume];
 }
 

@@ -86,12 +86,6 @@
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     
-    /*for (int i = 0; i < [self.results count]; i++) {
-     Movie *movie = self.results[i];
-     NSLog(@"Title: %@", movie.title);
-     NSLog(@"Image: %@", movie.imageURL);
-     }*/
-    
     self.success = YES;
 }
 
