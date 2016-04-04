@@ -64,8 +64,6 @@
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     if ([self.element isEqualToString:@"title"]) {
         [self.title appendString:string];
-    } else if ([self.element isEqualToString:@"enclosure"]) {
-        [self.image appendString: @"xx"];
     }
 }
 
